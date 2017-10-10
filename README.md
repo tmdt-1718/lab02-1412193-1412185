@@ -7,13 +7,13 @@ Thành viên:
 * [ ] **MSSV2** Tên sinh viên 2 (tên tài khoản github)
 
 URL: **URL hosting của bài tập**
-
+ 
 ## Yêu cầu
 
 Sinh viên check vào các mục bên dưới và ghi mã sinh viên đã làm vào chức năng theo mẫu. Mục nào ko có MSSV là tính điểm theo nhóm. Cần sắp xếp các chức năng bên dưới theo thứ tự MSSV đã thực hiện.
 
 Yêu cầu **GIT**:
-* [ ] Sử dụng GIT theo [Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow).
+* [ ] Sử dụng GIT theo [Feature Branch Workflow](https://w...content-available-to-author-only...n.com/git/tutorials/comparing-workflows#feature-branch-workflow).
 
 Yêu cầu **bắt buộc**
 * [ ] Đăng ký tài khoản bằng email, password, và tên.  (**MSSV**)
@@ -48,7 +48,7 @@ Link ảnh GIF demo ứng dụng:
 
 ![Video Walkthrough](demo.gif)
 
-Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
+Tạo ảnh GIF với chương trình [LiceCap](http://w...content-available-to-author-only...s.com/licecap/).
 
 
 ## License
@@ -59,7 +59,7 @@ Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+        http://w...content-available-to-author-only...e.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
