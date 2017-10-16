@@ -1,0 +1,17 @@
+<%= form_with(model: friendrequest, local: true) do |form| %>
+  <% if friendrequest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friendrequest.errors.count, "error") %> prohibited this friendrequest from being saved:</h2>
+
+      <ul>
+      <% friendrequest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

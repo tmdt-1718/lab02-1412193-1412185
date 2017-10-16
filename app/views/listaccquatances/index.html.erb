@@ -1,0 +1,64 @@
+
+
+
+<div class="content-wrapper mt-5">
+  <div class="container-fluid mt-4">
+
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Accquatance</li>
+    </ol>
+
+    <div class="row">
+      <div class="col-xl-12 col-sm-12 mb-3">
+          <div class="card text-white bg-info o-hidden h-100">
+              <div class="card-body">
+                  <div class="card-body-icon">
+                      <i class="fa fa-fw fa-support"></i>
+                  </div>
+                  <div class="mr-5">Friend Accquatance</div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i>Can you know the people ?</div>
+        <div class="card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="newmessages-tab" data-toggle="tab" href="#newmessages" role="tab" aria-controls="newmessages" aria-expanded="true">Accquatance</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
+                    <% if @listaccquatances.count > 0 %>
+                      <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Send friend Request</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <%= render 'listaccquatance', listaccquatances: @listaccquatances %>
+                        </tbody>
+                    </table>
+                    <% else %>
+                      <div class="mt-4" style="text-align:center;">
+                        <h6>
+                          No anyone else in here. Please come back later!
+                        </h6>
+                      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+  </div>
+</div>

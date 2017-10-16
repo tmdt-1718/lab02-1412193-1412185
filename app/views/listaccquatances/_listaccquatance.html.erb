@@ -1,0 +1,9 @@
+<% listaccquatances.each do |listaccquatance| %>
+<tr id="tr_<%= listaccquatance.id %>">
+    <td><%= listaccquatance.email %></td>
+    <td><%= listaccquatance.name %></td>
+    <td>
+      <td><%= link_to 'Show', listaccquatance_path(listaccquatance.id) %></td>
+    </td>
+</tr>
+<% end %>

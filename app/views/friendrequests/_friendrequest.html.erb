@@ -1,0 +1,13 @@
+<% listaccquatances.each do |listaccquatance| %>
+<tr id="tr_<%= listaccquatance.id %>">
+    <td><%= listaccquatance.email %></td>
+    <td><%= listaccquatance.name %></td>
+    <td>
+      <%= form_for( friendrequest, remote: true) do |f| %>
+              <%= f.hidden_field :usersend_id, :value => listaccquatance.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.submit "Sent", :data => {:disable_with => "Saving..."}, class: "btn btn-primary" %>
+      <% end %>
+    </td>
+</tr>
+<% end %>

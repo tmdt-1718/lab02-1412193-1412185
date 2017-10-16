@@ -1,0 +1,9 @@
+<% friendrequestsend.each do |friendrequest| %>
+<tr id="tr_<%= friendrequest.id %>">
+    <td><%= friendrequest.usersend.email %></td>
+    <td><%= friendrequest.usersend.name %></td>
+    <td>
+      <h6>No one</h6>
+    </td>
+</tr>
+<% end %>

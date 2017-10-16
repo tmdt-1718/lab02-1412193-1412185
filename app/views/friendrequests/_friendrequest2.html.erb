@@ -1,0 +1,9 @@
+<% friendsentaccpect.each do |sentaccpect| %>
+<tr id="tr_<%= sentaccpect.id %>">
+    <td><%= sentaccpect.user.email %></td>
+    <td><%= sentaccpect.user.name %></td>
+    <td>
+      <h6>No one</h6>
+    </td>
+</tr>
+<% end %>
