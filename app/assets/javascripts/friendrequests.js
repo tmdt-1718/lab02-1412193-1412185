@@ -1,13 +1,14 @@
 
-$(document).on('turbolinks:load', function() {
 
-  $("#annotation-submit-button").click(function(event) {
-  // do ajax call
-  $.ajax(...);
-  // disable the button
-  $(this).prop("disabled", true);
-  // prevent the standard action
-  return false;
+
+
+$(document).ready(function () {
+    // will call refreshPartial every 3 seconds
+    //setInterval(refreshPartial, 3000)
 });
 
-});
+function refreshPartial() {
+  $.ajax({
+    url: '/friendrequestcontroller/refresh_part'
+ })
+}

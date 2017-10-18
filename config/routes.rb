@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   }
   resources :listfriends
   resources :friendrequests
+  get 'friendrequestcontroller/refresh_part', to: "friendrequests#refresh_part"
   root to: "homes#index"
 end

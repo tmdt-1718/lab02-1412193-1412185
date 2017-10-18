@@ -12,12 +12,32 @@ class FriendrequestsController < ApplicationController
     z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id})
     @listaccquatances = x - y - z
 
-    @friendrequestsend = Friendrequest.where(user_id: current_user.id)
+    @friendrequests = Friendrequest.where(user_id: current_user.id)
 
     @friendsentaccpect = Friendrequest.where(usersend_id: current_user.id)
 
     @friendrequest = Friendrequest.new
   end
+
+  def refresh_part
+    x = User.joins("LEFT JOIN friendrequests on users.id = friendrequests.usersend_id").where.not(id: current_user.id)
+    y = User.joins("Inner JOIN friendrequests on users.id = friendrequests.usersend_id").where(friendrequests: {user_id: current_user.id})
+    z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id})
+    @listaccquatances = x - y - z
+
+    @friendrequests = Friendrequest.where(user_id: current_user.id)
+
+    @friendsentaccpect = Friendrequest.where(usersend_id: current_user.id)
+
+    @friendrequest = Friendrequest.new
+
+    respond_to do |format|
+
+      format.html { render "friendrequests/index" }
+      format.js
+    end
+  end
+
 
   # GET /friendrequests/1
   # GET /friendrequests/1.json
