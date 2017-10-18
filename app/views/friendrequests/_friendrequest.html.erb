@@ -2,6 +2,10 @@
     <td><%= friendrequest.usersend.email %></td>
     <td><%= friendrequest.usersend.name %></td>
     <td>
-      <h6>No one</h6>
+      <% if friendrequest.status == false %>
+        <p style='color:#e74c3c;'>Waiting for accpect</p>
+      <% else %>
+        <p style='color:#007bff;'>Accpected</p>
+      <% end %>
     </td>
 </tr>

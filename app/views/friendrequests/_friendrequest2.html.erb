@@ -1,9 +1,16 @@
 <% friendsentaccpect.each do |sentaccpect| %>
 <tr id="trr_<%= sentaccpect.id %>">
-    <td><%= sentaccpect.user.email %></td>
-    <td><%= sentaccpect.user.name %></td>
-    <td>
-      <h6>No one</h6>
+    <td class="friendrequestid" style="display:none;"><%= sentaccpect.id %></td>
+    <td class="email"><%= sentaccpect.user.email %></td>
+    <td class="name"><%= sentaccpect.user.name %></td>
+    <td class="button-accpect">
+      <% if sentaccpect.status == false %>
+        <button class="btn btn-primary use-address" type="button" name="button">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      <% else %>
+        <p style='color:#007bff;'>You accpected</p>
+      <% end %>
     </td>
 </tr>
 <% end %>

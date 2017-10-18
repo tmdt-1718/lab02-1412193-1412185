@@ -7,9 +7,9 @@ class FriendrequestsController < ApplicationController
   # GET /friendrequests
   # GET /friendrequests.json
   def index
-    x = User.joins("LEFT JOIN friendrequests on users.id = friendrequests.usersend_id").where.not(id: current_user.id)
-    y = User.joins("Inner JOIN friendrequests on users.id = friendrequests.usersend_id").where(friendrequests: {user_id: current_user.id})
-    z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id})
+    x = User.joins("LEFT JOIN friendrequests on users.id = friendrequests.usersend_id").where.not(id: current_user.id).distinct
+    y = User.joins("Inner JOIN friendrequests on users.id = friendrequests.usersend_id").where(friendrequests: {user_id: current_user.id}).distinct
+    z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id}).distinct
     @listaccquatances = x - y - z
 
     @friendrequests = Friendrequest.where(user_id: current_user.id)
@@ -17,12 +17,15 @@ class FriendrequestsController < ApplicationController
     @friendsentaccpect = Friendrequest.where(usersend_id: current_user.id)
 
     @friendrequest = Friendrequest.new
+
+    @listfriendcurrent = current_user.friendlist.desfriendlists;
+
   end
 
   def refresh_part
-    x = User.joins("LEFT JOIN friendrequests on users.id = friendrequests.usersend_id").where.not(id: current_user.id)
-    y = User.joins("Inner JOIN friendrequests on users.id = friendrequests.usersend_id").where(friendrequests: {user_id: current_user.id})
-    z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id})
+    x = User.joins("LEFT JOIN friendrequests on users.id = friendrequests.usersend_id").where.not(id: current_user.id).distinct
+    y = User.joins("Inner JOIN friendrequests on users.id = friendrequests.usersend_id").where(friendrequests: {user_id: current_user.id}).distinct
+    z = User.joins("Inner JOIN friendrequests on users.id = friendrequests.user_id").where(friendrequests: {usersend_id: current_user.id}).distinct
     @listaccquatances = x - y - z
 
     @friendrequests = Friendrequest.where(user_id: current_user.id)
@@ -38,6 +41,25 @@ class FriendrequestsController < ApplicationController
     end
   end
 
+  def update_status
+    begin
+      listrequest = Friendrequest.find(params[:idfriendrequest])
+      listrequest.update(status: true)
+      useraccpect = Desfriendlist.new(user_id: listrequest.user_id, friendlist_id:  current_user.friendlist.id)
+      useraccpect.save()
+      usersend = Desfriendlist.new(user_id: listrequest.usersend_id, friendlist_id:  listrequest.user.friendlist.id)
+      usersend.save()
+      listfriendupdate = current_user.friendlist.desfriendlists;
+      render json: {
+        alert: "success",
+        dataresponse: listfriendupdate
+      }
+    rescue
+      render json: {
+        alert: "fail"
+      }
+    end
+  end
 
   # GET /friendrequests/1
   # GET /friendrequests/1.json

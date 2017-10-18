@@ -1,5 +1,54 @@
-
 <div class="content-wrapper mt-5">
-  <h1>Listfriends#index</h1>
-  <p>Find me in app/views/listfriends/index.html.erb</p>
+  <div class="container-fluid mt-4">
+
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">List Friends</li>
+    </ol>
+
+    <div class="row">
+      <div class="col-xl-12 col-sm-12 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
+              <div class="card-body">
+                  <div class="card-body-icon">
+                      <i class="fa fa-fw fa-shopping-cart"></i>
+                  </div>
+                  <div class="mr-5"><%= @listfriendcurrent.count %> Members in list friends</div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-area-chart"></i></div>
+        <div class="card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="newmessages-tab" data-toggle="tab" href="#newmessages" role="tab" aria-controls="newmessages" aria-expanded="true">Friends</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
+                      <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Name Friend</th>
+                                <th>Send Email</th>
+                                <th>Block</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <%= render @listfriendcurrent %>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+
+  </div>
 </div>
