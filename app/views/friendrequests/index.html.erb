@@ -31,7 +31,6 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
-                    <% if @friendsentaccpect.count > 0 %>
                       <table class="table table-responsive">
                         <thead>
                             <tr>
@@ -44,13 +43,6 @@
                           <%= render 'friendrequest2', friendsentaccpect: @friendsentaccpect %>
                         </tbody>
                       </table>
-                    <% else %>
-                      <div class="mt-4" style="text-align:center;">
-                        <h6>
-                          You don't have friend Request!
-                        </h6>
-                      </div>
-                    <% end %>
                 </div>
             </div>
         </div>
@@ -68,7 +60,6 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
-                    <% if @friendrequestsend.count > 0 %>
                       <table class="table table-responsive">
                         <thead>
                             <tr>
@@ -77,17 +68,10 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                          <%= render 'friendrequest1', friendrequestsend: @friendrequestsend %>
+                        <tbody id="sentrequest">
+                          <%= render @friendrequests %>
                         </tbody>
                       </table>
-                    <% else %>
-                      <div class="mt-4" style="text-align:center;">
-                        <h6>
-                          You didn't send friend Request for anyone!
-                        </h6>
-                      </div>
-                    <% end %>
                 </div>
             </div>
         </div>
@@ -105,7 +89,6 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
-                    <% if @listaccquatances.count > 0 %>
                       <table class="table table-responsive">
                         <thead>
                             <tr>
@@ -115,16 +98,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                          <%= render 'friendrequest', listaccquatances: @listaccquatances, friendrequest: @friendrequest %>
+                          <%= render 'friendrequest1', listaccquatances: @listaccquatances, friendrequest: @friendrequest %>
                         </tbody>
                       </table>
-                    <% else %>
-                      <div class="mt-4" style="text-align:center;">
-                        <h6>
-                          No anyone else in here. Please come back later!
-                        </h6>
-                      </div>
-                    <% end %>
                 </div>
             </div>
         </div>

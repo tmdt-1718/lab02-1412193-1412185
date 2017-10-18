@@ -1,13 +1,11 @@
-<% listaccquatances.each do |listaccquatance| %>
-<tr id="tr_<%= listaccquatance.id %>">
-    <td><%= listaccquatance.email %></td>
-    <td><%= listaccquatance.name %></td>
+<tr id="trs_<%= friendrequest.id %>">
+    <td><%= friendrequest.usersend.email %></td>
+    <td><%= friendrequest.usersend.name %></td>
     <td>
-      <%= form_for( friendrequest, remote: true) do |f| %>
-              <%= f.hidden_field :usersend_id, :value => listaccquatance.id %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.submit "Sent", :data => {:disable_with => "Saving..."}, class: "btn btn-primary" %>
+      <% if friendrequest.status == false %>
+        <p style='color:#e74c3c;'>Waiting for accpect</p>
+      <% else %>
+        <p style='color:#007bff;'>Accpected</p>
       <% end %>
     </td>
 </tr>
-<% end %>

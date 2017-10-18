@@ -15,13 +15,13 @@
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Home</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">New Messages
                         <span class="badge badge-pill badge-primary">6</span>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Sent Messages</span>
                 </a>
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="/listfriends">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">List Friends
-                      <span class="badge badge-pill badge-primary">7</span>
+                      <span class="badge badge-pill badge-primary" id="friendslistnavigation"><%= @listfriendcurrent.count %></span>
                     </span>
                 </a>
             </li>

@@ -1,0 +1,2 @@
+module DesfriendlistsHelper
+end

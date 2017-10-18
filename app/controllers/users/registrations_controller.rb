@@ -3,14 +3,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  #def new
+  #    super
+  #end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+      super
+      if current_user
+        @newlistfriend = Friendlist.new(user_id: current_user.id)
+        @newlistfriend.save()
+      end
+  end
 
   # GET /resource/edit
   # def edit

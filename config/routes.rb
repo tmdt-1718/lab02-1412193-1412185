@@ -6,6 +6,10 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
   }
   resources :listfriends
+
   resources :friendrequests
+  get 'friendrequestcontroller/refresh_part', to: "friendrequests#refresh_part"
+  post 'friendrequestcontroller/update_status', to: "friendrequests#update_status"
+
   root to: "homes#index"
 end
