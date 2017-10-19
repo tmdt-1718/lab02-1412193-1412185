@@ -8,10 +8,13 @@
 
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link btn btn-primary mt-3 ml-3 mr-3" href="index.html">
+                <%= link_to new_message_path, class:"nav-link btn btn-primary mt-3 ml-3 mr-3" do%>
                     <i class="fa fa-fw fa-envelope-o"></i>
-                    <span class="nav-link-text">Sent</span>
-                </a>
+                    <span class="nav-link-text">
+                        Send New Message
+                </span>
+                
+                <% end %>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
