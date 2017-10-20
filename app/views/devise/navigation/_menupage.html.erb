@@ -24,19 +24,19 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/messages">
                     <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">New Messages
+                    <span class="nav-link-text">Read Messages
                         <span class="badge badge-pill badge-primary">6</span>
                       </span>
                     </span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="/">
+                <%= link_to  messages_sent_path, class:"nav-link" do%>
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Sent Messages</span>
-                </a>
+                <% end %>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">

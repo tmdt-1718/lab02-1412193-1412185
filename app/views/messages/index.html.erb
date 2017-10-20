@@ -1,0 +1,93 @@
+<div class="content-wrapper mt-5">
+  <div class="container-fluid mt-4">
+
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Message</li>
+    </ol>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-area-chart"></i>Statistic</div>
+        <div class="card-body">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="newmessages-tab" data-toggle="tab" href="#newmessages" role="tab" aria-controls="newmessages" aria-expanded="true">Unread Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="sentmessages-tab" data-toggle="tab" href="#sentmessages" role="tab" aria-controls="sentmessages">Read Messages</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="allmessage-tab" data-toggle="tab" href="#allmessage" role="tab" aria-controls="allmessage">All Messages</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Addresser</th>
+                   
+                 </tr>
+               </thead>
+               <tbody>
+                <% @unreadmessage.each do |u| %>
+                <tr class='clickable-row table-active' data-href='/users/sign_up'>
+                  <td> <%= u.title %></td>
+                  <td> <%= User.find(u.user_id).name %></td>
+                </tr>
+                <%= link_to message_path(u.id) %>
+                <% end %>
+              </tbody>
+
+            </table>
+          </div>
+          <div class="tab-pane fade" id="sentmessages" role="tabpanel" aria-labelledby="sentmessages-tab">
+            <table class="table table-responsive">
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Addresser</th>
+                   
+                 </tr>
+               </thead>
+               <tbody>
+                <% @readmessage.each do |f| %>
+                <tr class='clickable-row table-active' data-href='/users/sign_up'>
+                  <td> <%= f.title %></td>
+                  <td> <%= User.find(f.user_id).name %></td>
+                </tr>
+                <%= link_to message_path(f.id) %>
+                <% end %>
+              </tbody>
+
+            </table>
+          </div>
+          <div class="tab-pane fade" id="allmessage" role="tabpanel" aria-labelledby="allmessage-tab">
+            <table class="table table-responsive">
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Addresser</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <% @message.each do |m| %>
+                <tr class='clickable-row table-active'>
+                  <td> <%= m.title %></td>
+                  <td> <%= User.find(m.user_id).name %></td>
+                </tr>
+                <%= link_to message_path(m.id) %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer small text-muted"></div>
+    </div>
+  </div>
+</div>
