@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
   }
   resources :listfriends
+  get 'messages/sent', to: "messages#sent"
   resources :messages
   resources :friendrequests
   get 'friendrequestcontroller/refresh_part', to: "friendrequests#refresh_part"

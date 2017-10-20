@@ -4,39 +4,41 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active">List Friends</li>
+      <li class="breadcrumb-item"><a href="/messages">Message</a></li>
+      <li class="breadcrumb-item active">New Message</li>
     </ol>
     <div class="card mb-3">
       <div class="card-header">
       </div>
       <div class="card-body">
-  <% @listfriendcurrent.each do |friend|%>
-  <h3><%= friend.user.email %></h3>
-  <h3><%= friend.user.name %></h3>
-<% end %>
 
 
         <%= form_with(model: @message, local: true) do |f| %>
         <div class="form-group">
-        <%= f.label :receiver_id, "Receiver"%>
+        <%= f.label :usersend_id, "Receiver"%>
         <br />
-        <%= f.select :receiver_id, @listfriendcurrent.collect {|friend| [friend.user.email, friend.user.id]} %>
+        <%= f.select :usersend_id, @listfriendcurrent.collect {|friend| [friend.user.email, friend.user.id]} %>
+</div>
+<div class="form-group">
+        <%= f.label :typemessage_id, "Type Message"%>
+        <br />
+        <%= f.select :typemessage_id, @typemessage.collect {|type| [type.content, type.id]} %>
 </div>
         <div class="form-group">
 
-          <%= f.label :tittle , "Tittle"%>
+          <%= f.label :title , "Tittle"%>
           <br />
-          <%= f.text_field :tittle, autocomplete: "off", cols: "80" %>
+          <%= f.text_field :title, autocomplete: "off", cols: "80" %>
         </div>
         <div class="form-group" rows="3">
           <%= f.label :content , "Content"%>
           <br />
           <%= f.text_area :content, autocomplete: "off", cols: "80", rows: "10" %>
         </div>
-        <%= f.hidden_field :user_id, :value => params[:id] %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <div class="actions">
           <br/>
-          <%= f.submit "Post", class: "btn btn-primary" %>
+          <%= f.submit "Send", class: "btn btn-primary" %>
         </div>
         <% end %>
         <div>
