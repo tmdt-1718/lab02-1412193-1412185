@@ -4,12 +4,12 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/messages">Message</a></li>
+      <li class="breadcrumb-item"><a href="/sent">Sent Message</a></li>
       <li class="breadcrumb-item active">
-         <%= @message.title[0..5] %> . . .</li>
-      </ol>
+       <%= @message.title[0..5] %> . . .</li>
+     </ol>
 
-      <div class="card mb-3">
+     <div class="card mb-3">
       <div class="card-header">
         <h4><%= @message.title %> </h4>
         <div class="container">
@@ -37,5 +37,5 @@
       </div>
       
     </div>
-    </div>
+  </div>
 </div>

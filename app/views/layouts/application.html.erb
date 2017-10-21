@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Webemail</title>
-        <%= csrf_meta_tags %>
+<head>
+    <title>Webemail</title>
+    <%= csrf_meta_tags %>
 
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <body>
+<body>
 
-        <div class="wapper">
-            <div class="header">
-                <%= render "devise/navigation/menu" %>
-            </div>
-            <div class="body-content">
-                <div class="container" style="padding-top: 50px;">
-                    <%= yield %>
-                </div>
-            </div>
-            <div class="footers">
-                <footer id="footer" class="footerBG">
-                    <div class="footer">
-                      <strong>Yalo Social Network</strong> &copy; Copyright 2017 by <a title="Xem Profile" href="https://www.facebook.com/profile.php?id=100004566498021" target="_blank"><b>thaihocmap123@@gmail.com</b></a>
-                    </div>
-                </footer>
+    <div class="wapper">
+        <div class="header">
+            <%= render "devise/navigation/menu" %>
+        </div>
+        <div class="body-content">
+            <div class="container" style="padding-top: 50px;">
+                <%= yield %>
             </div>
         </div>
-    </body>
-    <%= yield :js %>
+        <div class="footers">
+            <footer id="footer" class="footerBG">
+                <div class="footer">
+                  <strong>Yalo Social Network</strong> &copy; Copyright 2017 by <a title="Xem Profile" href="https://www.facebook.com/profile.php?id=100004566498021" target="_blank"><b>thaihocmap123@@gmail.com</b></a>
+              </div>
+          </footer>
+      </div>
+  </div>
+</body>
+<%= yield :js %>
 </html>

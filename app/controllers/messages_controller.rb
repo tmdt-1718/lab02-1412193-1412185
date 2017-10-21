@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 	layout 'applicationPage'
-	before_action :set_message, only: [:show, :edit, :update, :destroy]
+	before_action :set_message, only: [:show, :show1, :edit, :update, :destroy]
 	def new
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
 		@message = Message.new
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 		@message = current_user.messages.new(message_params)
 		@message.save
 		flash[:success] = "message was sent ."
-		redirect_to
+		redirect_to messages_sent_path
    	 	rescue
 		flash[:error] = "message fail to send! Please try again"
 		end
@@ -21,20 +21,29 @@ class MessagesController < ApplicationController
 
 	def index
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
-		@message = Message.where(usersend_id: current_user.id)
-		@readmessage = Message.where(usersend_id: current_user.id).where(:status => true)
-		@unreadmessage = Message.where(usersend_id: current_user.id).where(:status => false)
+		@message = Message.where(usersend_id: current_user.id).order('created_at asc')
+		@readmessage = Message.where(usersend_id: current_user.id).where(:status => true).order('created_at asc')
+		@unreadmessage = Message.where(usersend_id: current_user.id).where(:status => false).order('created_at asc')
 	end
 
 	#done
 	def sent
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
-		@message = current_user.messages.all
+		@message = current_user.messages.all.order('created_at asc')
 	end
 
 	#done
 	def show
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
+	end
+
+	def show1
+		@listfriendcurrent = current_user.friendlist.desfriendlists;
+	end
+
+	def edit
+		@message.update(status: true)
+		redirect_to message_path(params[:id])
 	end
 private
 	def message_params

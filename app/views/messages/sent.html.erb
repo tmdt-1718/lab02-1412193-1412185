@@ -4,7 +4,7 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active">Message</li>
+      <li class="breadcrumb-item active">Sent Message</li>
     </ol>
     <div class="row">
       <div class="col-xl-12 col-sm-12 mb-3">
@@ -28,13 +28,15 @@
                   <tr>
                    <th>Title</th>
                    <th>Receiver</th>
+                   <th>Sent at</th>
                  </tr>
                </thead>
                <tbody>
                 <% @message.each do |f| %>
-                <tr class='clickable-row' data-href='<%= message_path(f.id) %>'>
+                <tr class='clickable-row' data-href='<%= sentmessage_path(f.id) %>'>
                   <td> <%= f.title %></td>
                   <td> <%= f.usersend.name %></td>
+                  <td> <%= f.created_at.strftime("%d-%m-%Y %H:%M") %></td>
                 </tr>
                 <% end %>
               </tbody>
