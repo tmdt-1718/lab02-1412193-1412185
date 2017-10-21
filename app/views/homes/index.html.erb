@@ -12,7 +12,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-comments"></i>
                         </div>
-                        <div class="mr-5">0 New Messages!</div>
+                        <div class="mr-5"><%= @unreadmessages.count %> New Messages!</div>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-list"></i>
                         </div>
-                        <div class="mr-5">0 Sent Messages!</div>
+                        <div class="mr-5"><%= @sentmessages.count %> Sent Messages!</div>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-shopping-cart"></i>
                         </div>
-                        <div class="mr-5">0 List Friends</div>
+                        <div class="mr-5"><%= @listfriendcurrent.count %> List Friends</div>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-support"></i>
                         </div>
-                        <div class="mr-5">0 Friend Requests</div>
+                        <div class="mr-5"><%= @friendrequests.count %> Friend Requests</div>
                     </div>
                 </div>
             </div>
@@ -59,43 +59,71 @@
                     <li class="nav-item">
                         <a class="nav-link" id="sentmessages-tab" data-toggle="tab" href="#sentmessages" role="tab" aria-controls="sentmessages">Sent Messages</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" id="accquantance-tab" data-toggle="tab" href="#accquantance" role="tab" aria-controls="accquantance">Friend Requests</a>
+                    <li class="nav-item">
+                        <a class="nav-link" id="friendslist-tab" data-toggle="tab" href="#friendslist" role="tab" aria-controls="friendslist" aria-expanded="true">Friends List</a>
                     </li>
+                    
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="newmessages" role="tabpanel" aria-labelledby="newmessages-tab">
 
                         <table class="table table-responsive">
-                            <thead>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class='clickable-row table-active' data-href='/users/sign_up'>
-                                    <td>Blah Blah</td>
-                                    <td>1234567</td>
-                                    <td>£158,000</td>
-                                </tr>
-                                <tr class='clickable-row' data-href=''>
-                                    <td>More money</td>
-                                    <td>1234567</td>
-                                    <td>£800,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Addresser</th>
+                   <th>Sent at</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <% @unreadmessages.take(3).each do |u| %>
+                <tr class='clickable-row table-active' data-href='<%= edit_message_path(u.id)%>'>
+                  <td> <%= u.title[0..15] %> . . .</td>
+                  <td> <%= User.find(u.user_id).name %></td>
+                  <td> <%= u.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+                </tr>
+                <% end %>
+              </tbody>
+
+            </table>
 
                     </div>
                     <div class="tab-pane fade" id="sentmessages" role="tabpanel" aria-labelledby="sentmessages-tab">
-                        B...
+                        <table class="table table-responsive">
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Addresser</th>
+<th>Sent at</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <% @sentmessages.take(3).each do |f| %>
+                <tr class='clickable-row' data-href='<%= message_path(f.id)%>'>
+                  <td> <%= f.title %></td>
+                  <td> <%= User.find(f.user_id).name %></td>
+                  <td> <%= f.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+                </tr>
+                <% end %>
+              </tbody>
+
+            </table>
                     </div>
-                    <div class="tab-pane fade" id="accquantance" role="tabpanel" aria-labelledby="accquantance-tab">
-                        ...
+                    <div class="tab-pane fade" id="friendslist" role="tabpanel" aria-labelledby="friendslist-tab">
+                        <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Name Friend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <%= render @listfriendcurrent %>
+                        </tbody>
+                      </table>
                     </div>
+                    
                 </div>
 
             </div>

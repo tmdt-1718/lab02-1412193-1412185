@@ -1,6 +1,17 @@
 <div class="content-wrapper mt-5">
   <div class="container-fluid mt-4">
-
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -8,7 +19,10 @@
       <li class="breadcrumb-item active">
          <%= @message.title[0..5] %> . . .</li>
       </ol>
-
+<p>
+  <%= flash[:success] unless flash[:success].blank? %>
+  <%= flash[:error] unless flash[:error].blank? %>
+</p>
       <div class="card mb-3">
       <div class="card-header">
         <h4><%= @message.title %> </h4>

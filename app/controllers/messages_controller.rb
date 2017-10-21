@@ -12,8 +12,8 @@ class MessagesController < ApplicationController
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
 		@message = current_user.messages.new(message_params)
 		@message.save
-		flash[:success] = "message was sent ."
-		redirect_to messages_sent_path
+		flash[:success] = "message was sent."
+		redirect_to messages_path
    	 	rescue
 		flash[:error] = "message fail to send! Please try again"
 		end
@@ -34,11 +34,20 @@ class MessagesController < ApplicationController
 
 	#done
 	def show
+		@message = Message.find(params[:id])
+		puts @message.inspect
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
+		if (current_user.id != @message.user_id) and (current_user.id != @message.usersend_id)
+			redirect_to messages_path, :flash => { :error => "Insufficient rights!" }
+		end
 	end
 
 	def show1
+		@message = Message.find(params[:id])
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
+		if (current_user.id != @message.user_id) and (current_user.id != @message.usersend_id)
+			redirect_to sent_path, :flash => { :error => "Insufficient rights!" }
+		end
 	end
 
 	def edit

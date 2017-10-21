@@ -1,6 +1,17 @@
 <div class="content-wrapper mt-5">
   <div class="container-fluid mt-4">
-
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -14,7 +25,7 @@
                 <div class="card-body-icon">
                     <i class="fa fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">New Messages!</div>
+                <div class="mr-5"><%= @unreadmessage.count %> New Messages!</div>
             </div>
         </div>
       </div>
