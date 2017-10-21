@@ -7,6 +7,19 @@
       <li class="breadcrumb-item active">Message</li>
     </ol>
 
+    <div class="row">
+      <div class="col-xl-12 col-sm-12 mb-3">
+        <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-comments"></i>
+                </div>
+                <div class="mr-5">New Messages!</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
     <div class="card mb-3">
       <div class="card-header">
         <i class="fa fa-area-chart"></i>Statistic</div>
@@ -30,16 +43,14 @@
                   <tr>
                    <th>Title</th>
                    <th>Addresser</th>
-                   
                  </tr>
                </thead>
                <tbody>
                 <% @unreadmessage.each do |u| %>
-                <tr class='clickable-row table-active' data-href='/users/sign_up'>
-                  <td> <%= u.title %></td>
+                <tr class='clickable-row table-active' data-href='<%= message_path(u.id) %>'>
+                  <td> <%= u.title[0..15] %> . . .</td>
                   <td> <%= User.find(u.user_id).name %></td>
                 </tr>
-                <%= link_to message_path(u.id) %>
                 <% end %>
               </tbody>
 
@@ -51,7 +62,7 @@
                   <tr>
                    <th>Title</th>
                    <th>Addresser</th>
-                   
+
                  </tr>
                </thead>
                <tbody>
@@ -76,11 +87,17 @@
                </thead>
                <tbody>
                 <% @message.each do |m| %>
-                <tr class='clickable-row table-active'>
-                  <td> <%= m.title %></td>
-                  <td> <%= User.find(m.user_id).name %></td>
-                </tr>
-                <%= link_to message_path(m.id) %>
+                  <% if m.status == false %>
+                  <tr class='clickable-row table-active' data-href='link_to message_path(m.id)'>
+                    <td> <%= m.title %></td>
+                    <td> <%= User.find(m.user_id).name %></td>
+                  </tr>
+                  <% else %>
+                    <tr class='clickable-row' data-href='link_to message_path(m.id)'>
+                      <td> <%= m.title %></td>
+                      <td> <%= User.find(m.user_id).name %></td>
+                    </tr>
+                  <% end %>
                 <% end %>
               </tbody>
             </table>

@@ -6,6 +6,18 @@
       <li class="breadcrumb-item"><a href="/">Home</a></li>
       <li class="breadcrumb-item active">Message</li>
     </ol>
+    <div class="row">
+      <div class="col-xl-12 col-sm-12 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                  <div class="card-body-icon">
+                      <i class="fa fa-fw fa-list"></i>
+                  </div>
+                  <div class="mr-5">0 Sent Messages!</div>
+              </div>
+          </div>
+      </div>
+    </div>
 
     <div class="card mb-3">
       <div class="card-header">
@@ -20,18 +32,17 @@
                </thead>
                <tbody>
                 <% @message.each do |f| %>
-                <tr class='clickable-row table-active'>
+                <tr class='clickable-row' data-href='<%= message_path(f.id) %>'>
                   <td> <%= f.title %></td>
-                  <td> <%= User.find(f.usersend_id).name %></td>
+                  <td> <%= f.usersend.name %></td>
                 </tr>
-                <%= link_to message_path(f.id) %>
                 <% end %>
               </tbody>
 
             </table>
-          
+
         </div>
+        <div class="card-footer small text-muted"></div>
       </div>
-      <div class="card-footer small text-muted"></div>
     </div>
   </div>
