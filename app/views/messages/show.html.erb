@@ -4,45 +4,52 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/message">Message</a></li>
-      <li class="breadcrumb-item active"> 
-        <% params[:id] %> </li>
+      <li class="breadcrumb-item"><a href="/messages">Message</a></li>
+      <li class="breadcrumb-item active">
+         <%= @message.title[0..5] %> . . .</li>
       </ol>
 
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-area-chart"></i>
-          <% @message.title %>
+          <%= @message.title %>
         </div>
         <div class="card-body">
           <div class="container">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Addresser</label>
-                <div class="col-sm-10">
-                  <% User.find(@message.user_id).email %>
+            <div class="row">
+
+                <!-- Post Content Column -->
+                <div class="col-lg-8">
+
+                  <!-- Title -->
+                  <h1 class="mt-4"> <%= @message.title %></h1>
+
+                  <!-- Author -->
+                  <p class="lead">
+                    Sent to  <%= @message.user.name %>
+                  </p>
+
+                  <!-- Date/Time -->
+                  <p><%= @message.created_at %></p>
+
+                  <!-- Preview Image -->
+                  <!-- Post Content -->
+                  <p class="lead">
+                    <%= @message.content %>
+                  </p>
+
+                  <hr>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Receiver</label>
-                <div class="col-sm-10">
-                  <% User.find(@message.usersend_id).email %>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Content</label>
-                <div class="col-sm-10">
-                  <% @message.content %>
-                </div>
-              </div>
 
-
-
-
-            </form>
           </div>
         </div>
+        <div class="card-footer small text-muted"></div>
       </div>
-      <div class="card-footer small text-muted"></div>
     </div>
-  </div>
+
+
+
+
+
+</div>

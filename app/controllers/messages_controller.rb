@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 		@message = current_user.messages.new(message_params)
 		@message.save
 		flash[:success] = "message was sent ."
-		redirect_to 
+		redirect_to
    	 	rescue
 		flash[:error] = "message fail to send! Please try again"
 		end
@@ -21,19 +21,20 @@ class MessagesController < ApplicationController
 
 	def index
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
-		@message = current_user.messages.all
-		@readmessage = current_user.messages.where(:status => true)
-		@unreadmessage = current_user.messages.where(:status => false)
-		puts @unreadmessage
+		@message = Message.where(usersend_id: current_user.id)
+		@readmessage = Message.where(usersend_id: current_user.id).where(:status => true)
+		@unreadmessage = Message.where(usersend_id: current_user.id).where(:status => false)
 	end
 
+	#done
 	def sent
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
 		@message = current_user.messages.all
 	end
 
+	#done
 	def show
-		@message = Message.find(params[:id])
+		@listfriendcurrent = current_user.friendlist.desfriendlists;
 	end
 private
 	def message_params
