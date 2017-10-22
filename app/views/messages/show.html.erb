@@ -30,7 +30,7 @@
           <div class="card-block">
             <br>
 <div>
-            <h5 class="card-subtitle mb-2"> Addresser</h5>  
+            <h5 class="card-subtitle mb-2"> Addresser</h5>
             <button class="btn btn-outline-primary btn-sm"><%= @message.user.email %></button>
             </div>
             <br>
@@ -40,16 +40,16 @@
             </div>
             <br>
             <h6 class="card-subtitle mb-2 text-muted"> Sent at: <%= @message.created_at.strftime("%d-%m-%Y %H:%M") %></h6>
-            
-            
+
+
           </div>
 
         </div>
       </div>
       <div class="card-body">
-<p class="card-text"><%= @message.content %></p>
+<p class="card-text"><%= @message.content.html_safe() %></p>
       </div>
-      
+
     </div>
     </div>
 </div>
