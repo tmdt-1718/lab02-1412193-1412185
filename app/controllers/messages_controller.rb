@@ -35,7 +35,6 @@ class MessagesController < ApplicationController
 	#done
 	def show
 		@message = Message.find(params[:id])
-		puts @message.inspect
 		@listfriendcurrent = current_user.friendlist.desfriendlists;
 		if (current_user.id != @message.user_id) and (current_user.id != @message.usersend_id)
 			redirect_to messages_path, :flash => { :error => "Insufficient rights!" }

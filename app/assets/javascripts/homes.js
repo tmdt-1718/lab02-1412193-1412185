@@ -3,12 +3,12 @@
 //# You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on('turbolinks:load', function() {
-
-    $('table tr').hover(function() {
-        $(this).addClass('hover');
+    $('table tr:not(first-child)').hover(function() {
+        $(this).addClass('hover')
     }, function() {
-        $(this).removeClass('hover');
+        $(this).removeClass('hover')
     });
+
 
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");

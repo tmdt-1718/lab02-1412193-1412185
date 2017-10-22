@@ -41,10 +41,10 @@
           <br />
           <%= f.text_field :title, autocomplete: "off", class: "form-text", style: "min-width: 100%" %>
         </div>
-        <div class="form-group" rows="3">
+        <div class="form-group summernote" rows="3">
           <%= f.label :content , "Content"%>
           <br />
-          <%= f.text_area :content, class:'summernote', rows: "10", style: "min-width: 100%" %>
+          <%= f.text_area :content, id: :"courrier-examen", rows: "10", style: "min-width: 100%" %>
         </div>
 
         <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -67,5 +67,5 @@
     </div>
 
   </div>
-      
+
 </div>
