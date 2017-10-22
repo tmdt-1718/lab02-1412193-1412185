@@ -1,6 +1,17 @@
 <div class="content-wrapper mt-5">
   <div class="container-fluid mt-4">
-
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -26,15 +37,16 @@
 </div>
         <div class="form-group">
 
-          <%= f.label :title , "Tittle"%>
+          <%= f.label :title , "Title"%>
           <br />
-          <%= f.text_field :title, autocomplete: "off", cols: "80" %>
+          <%= f.text_field :title, autocomplete: "off", class: "form-text", style: "min-width: 100%" %>
         </div>
         <div class="form-group" rows="3">
           <%= f.label :content , "Content"%>
           <br />
-          <%= f.text_area :content, autocomplete: "off", cols: "80", rows: "10" %>
+          <%= f.text_area :content, class:'summernote', rows: "10", style: "min-width: 100%" %>
         </div>
+
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <div class="actions">
           <br/>
@@ -43,5 +55,17 @@
         <% end %>
         <div>
         </div>
+
       </div>
+      <script type="text/javascript">
+    $( document ).ready(function() {
+        $('[data-provider="summernote"]').each(function(){
+            $(this).summernote({ });
+        })
+    });
+</script>
     </div>
+
+  </div>
+      
+</div>

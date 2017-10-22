@@ -1,6 +1,17 @@
 <div class="content-wrapper mt-5">
   <div class="container-fluid mt-4">
-
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -14,7 +25,7 @@
                 <div class="card-body-icon">
                     <i class="fa fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">New Messages!</div>
+                <div class="mr-5"><%= @unreadmessage.count %> New Messages!</div>
             </div>
         </div>
       </div>
@@ -43,13 +54,15 @@
                   <tr>
                    <th>Title</th>
                    <th>Addresser</th>
+                   <th>Sent at</th>
                  </tr>
                </thead>
                <tbody>
                 <% @unreadmessage.each do |u| %>
-                <tr class='clickable-row table-active' data-href='<%= message_path(u.id) %>'>
+                <tr class='clickable-row table-active' data-href='<%= edit_message_path(u.id)%>'>
                   <td> <%= u.title[0..15] %> . . .</td>
                   <td> <%= User.find(u.user_id).name %></td>
+                  <td> <%= u.created_at.strftime("%d-%m-%Y %H:%M") %></td>
                 </tr>
                 <% end %>
               </tbody>
@@ -62,16 +75,16 @@
                   <tr>
                    <th>Title</th>
                    <th>Addresser</th>
-
+<th>Sent at</th>
                  </tr>
                </thead>
                <tbody>
                 <% @readmessage.each do |f| %>
-                <tr class='clickable-row table-active' data-href='/users/sign_up'>
+                <tr class='clickable-row' data-href='<%= message_path(f.id)%>'>
                   <td> <%= f.title %></td>
                   <td> <%= User.find(f.user_id).name %></td>
+                  <td> <%= f.created_at.strftime("%d-%m-%Y %H:%M") %></td>
                 </tr>
-                <%= link_to message_path(f.id) %>
                 <% end %>
               </tbody>
 
@@ -83,19 +96,22 @@
                   <tr>
                    <th>Title</th>
                    <th>Addresser</th>
+                   <th>Sent at</th>
                  </tr>
                </thead>
                <tbody>
                 <% @message.each do |m| %>
                   <% if m.status == false %>
-                  <tr class='clickable-row table-active' data-href='link_to message_path(m.id)'>
+                  <tr class='clickable-row table-active' data-href="<%= edit_message_path(m.id)%>">
                     <td> <%= m.title %></td>
                     <td> <%= User.find(m.user_id).name %></td>
+                    <td> <%= m.created_at.strftime("%d-%m-%Y %H:%M") %></td>
                   </tr>
                   <% else %>
-                    <tr class='clickable-row' data-href='link_to message_path(m.id)'>
+                    <tr class='clickable-row' data-href='<%= message_path(m.id)%>'>
                       <td> <%= m.title %></td>
                       <td> <%= User.find(m.user_id).name %></td>
+                      <td> <%= m.created_at.strftime("%d-%m-%Y %H:%M") %></td>
                     </tr>
                   <% end %>
                 <% end %>
