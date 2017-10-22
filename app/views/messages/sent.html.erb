@@ -1,0 +1,61 @@
+<div class="content-wrapper mt-5">
+  <div class="container-fluid mt-4">
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Sent Message</li>
+    </ol>
+    <div class="row">
+      <div class="col-xl-12 col-sm-12 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                  <div class="card-body-icon">
+                      <i class="fa fa-fw fa-list"></i>
+                  </div>
+                  <div class="mr-5"><%= @message.count %> Sent Messages!</div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-area-chart"></i>Sent Message</div>
+        <div class="card-body">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                   <th>Title</th>
+                   <th>Receiver</th>
+                   <th>Sent at</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <% @message.each do |f| %>
+                <tr class='clickable-row' data-href='<%= sentmessage_path(f.id) %>'>
+                  <td> <%= f.title %></td>
+                  <td> <%= f.usersend.name %></td>
+                  <td> <%= f.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+                </tr>
+                <% end %>
+              </tbody>
+
+            </table>
+
+        </div>
+        <div class="card-footer small text-muted"></div>
+      </div>
+    </div>
+  </div>

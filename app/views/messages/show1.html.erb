@@ -1,0 +1,52 @@
+<div class="content-wrapper mt-5">
+  <div class="container-fluid mt-4">
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/sent">Sent Message</a></li>
+      <li class="breadcrumb-item active">
+       <%= @message.title[0..5] %> . . .</li>
+     </ol>
+
+     <div class="card mb-3">
+      <div class="card-header">
+        <h4><%= @message.title %> </h4>
+        <div class="container">
+          <div class="card-block">
+            <br>
+<div>
+            <h5 class="card-subtitle mb-2"> Addresser</h5>
+            <button class="btn btn-outline-primary btn-sm"><%= @message.user.email %></button>
+            </div>
+            <br>
+            <div>
+            <h5 class="card-subtitle mb-2"> Receiver</h5>
+            <button class="btn btn-outline-primary btn-sm"><%= User.find(@message.usersend_id).email %></button>
+            </div>
+            <br>
+            <h6 class="card-subtitle mb-2 text-muted"> Sent at: <%= @message.created_at.strftime("%d-%m-%Y %H:%M") %></h6>
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class="card-body">
+<p class="card-text"><%= @message.content.html_safe() %></p>
+      </div>
+
+    </div>
+  </div>
+</div>

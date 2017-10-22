@@ -8,10 +8,13 @@
 
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link btn btn-primary mt-3 ml-3 mr-3" href="index.html">
+                <%= link_to new_message_path, class:"nav-link btn btn-primary mt-3 ml-3 mr-3" do%>
                     <i class="fa fa-fw fa-envelope-o"></i>
-                    <span class="nav-link-text">Sent</span>
-                </a>
+                    <span class="nav-link-text">
+                        Send New Message
+                </span>
+                
+                <% end %>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -21,19 +24,19 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/messages">
                     <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">New Messages
-                        <span class="badge badge-pill badge-primary">6</span>
+                    <span class="nav-link-text">Read Messages
+                        <span class="badge badge-pill badge-primary"><%= Message.where(usersend_id: current_user.id).where(:status => false).count %></span>
                       </span>
                     </span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="/">
+                <%= link_to  sent_path, class:"nav-link" do%>
                     <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Sent Messages</span>
-                </a>
+                    <span class="nav-link-text">Sent Messages<span class="badge badge-pill badge-primary"><%= Message.where(user_id: current_user.id).count %></span></span>
+                <% end %>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -185,7 +188,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">You Sure ?</div>
+            <div class="modal-body">Are You Sure?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-primary" href="login.html">Logout</a>

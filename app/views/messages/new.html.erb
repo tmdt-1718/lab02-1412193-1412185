@@ -1,0 +1,71 @@
+<div class="content-wrapper mt-5">
+  <div class="container-fluid mt-4">
+<p>
+  <% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</p>
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/messages">Message</a></li>
+      <li class="breadcrumb-item active">New Message</li>
+    </ol>
+    <div class="card mb-3">
+      <div class="card-header">
+      </div>
+      <div class="card-body">
+
+
+        <%= form_with(model: @message, local: true) do |f| %>
+        <div class="form-group">
+        <%= f.label :usersend_id, "Receiver"%>
+        <br />
+        <%= f.select :usersend_id, @listfriendcurrent.collect {|friend| [friend.user.email, friend.user.id]} %>
+</div>
+<div class="form-group">
+        <%= f.label :typemessage_id, "Type Message"%>
+        <br />
+        <%= f.select :typemessage_id, @typemessage.collect {|type| [type.content, type.id]} %>
+</div>
+        <div class="form-group">
+
+          <%= f.label :title , "Title"%>
+          <br />
+          <%= f.text_field :title, autocomplete: "off", class: "form-text", style: "min-width: 100%" %>
+        </div>
+        <div class="form-group summernote" rows="3">
+          <%= f.label :content , "Content"%>
+          <br />
+          <%= f.text_area :content, id: :"courrier-examen", rows: "10", style: "min-width: 100%" %>
+        </div>
+
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div class="actions">
+          <br/>
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+        <div>
+        </div>
+
+      </div>
+      <script type="text/javascript">
+    $( document ).ready(function() {
+        $('[data-provider="summernote"]').each(function(){
+            $(this).summernote({ });
+        })
+    });
+</script>
+    </div>
+
+  </div>
+
+</div>
