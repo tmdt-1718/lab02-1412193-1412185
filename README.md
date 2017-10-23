@@ -46,7 +46,7 @@ Liệt kê các **yêu cầu nâng cao** đã thực hiện:
 
 Link ảnh GIF demo ứng dụng:
 
-![Chức năng cơ bản](https://i.imgur.com/oMoNUBs.gifv)
+[Chức năng cơ bản](https://i.imgur.com/oMoNUBs.gifv)
 
 ![Chức năng nâng cao](https://media.giphy.com/media/3ov9k2lWeBN50S76Ny/giphy.gif)
 
