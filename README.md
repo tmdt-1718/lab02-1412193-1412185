@@ -7,7 +7,7 @@ Thành viên:
 * [x] **1412185** Trần Thiên Hoàng (1412185)
 
 URL: **https://floating-badlands-38885.herokuapp.com/**
- 
+
 ## Yêu cầu
 
 Sinh viên check vào các mục bên dưới và ghi mã sinh viên đã làm vào chức năng theo mẫu. Mục nào ko có MSSV là tính điểm theo nhóm. Cần sắp xếp các chức năng bên dưới theo thứ tự MSSV đã thực hiện.
@@ -39,7 +39,7 @@ Yêu cầu **không bắt buộc**:
 * [ ] Người dùng có thể gửi tin nhắn cho người dùng ngoài hệ thống. Khi đó, người nhận sẽ nhận được 1 email chứa link đăng ký tài khoản. Sau khi đăng ký tài khoản, họ có thể xem tin nhắn đã nhận. (**MSSV**)
 
 Liệt kê các **yêu cầu nâng cao** đã thực hiện:
-* [x] Gửi friend request (có dùng ajax để quản lý khi người ta gửi 1 friend request đến thể hiện trạng thái chờ đợi hay đã chấp nhận) (**1412193**) 
+* [x] Gửi friend request (có dùng ajax để quản lý khi người ta gửi 1 friend request đến thể hiện trạng thái chờ đợi hay đã chấp nhận) (**1412193**)
 * [ ] Chức năng 2
 
 ## Demo
