@@ -28,7 +28,7 @@
         <div class="form-group">
         <%= f.label :usersend_id, "Receiver"%>
         <br />
-        <%= f.select :usersend_id, @listfriendcurrent.collect {|friend| [friend.user.email, friend.user.id]} %>
+        <%= f.select :usersend_id, @listfriendcurrentat.collect {|friend| [friend.user.email, friend.user.id]} %>
 </div>
 <div class="form-group">
         <%= f.label :typemessage_id, "Type Message"%>
