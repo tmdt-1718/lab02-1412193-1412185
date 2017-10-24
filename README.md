@@ -6,7 +6,7 @@ Thành viên:
 * [x] **1412193** Nguyễn Thái Học (1412193 - NguyenThaiHoc1)
 * [x] **1412185** Trần Thiên Hoàng (1412185)
 
-URL: **https://floating-badlands-38885.herokuapp.com/**
+URL: **https://damp-dawn-21411.herokuapp.com/**
 
 ## Yêu cầu
 
@@ -30,7 +30,7 @@ Yêu cầu **không bắt buộc**:
 * [x] Người dùng có thể gửi hình ảnh đính kèm theo thông điệp. (**1412193** cái này em dùng summernote không biết có đúng ý thầy ko?)
 * [ ] Người dùng có thể gửi tin nhắn đến nhiều người dùng cùng lúc. (**MSSV**)
 * [ ] Người dùng có thể đăng nhập với Facebook. (**MSSV**)
-* [ ] Người dùng có thể block người khác. Sau khi block, người dùng sẽ không nhận được tin nhắn từ người bị block gửi nữa. (**MSSV**)
+* [x] Người dùng có thể block người khác. Sau khi block, người dùng sẽ không nhận được tin nhắn từ người bị block gửi nữa. (**1412193**)
 * [ ] Người dùng có thể xóa người dùng khác ra khỏi danh sách bạn. (**MSSV**)
 * [ ] Người dùng có thể unblock người dùng khác. (**MSSV**)
 * [ ] Khi người dùng kéo xuống cuối trang, các tin nhắn tiếp theo sẽ tự động hiển thị hoặc có nút nhấn "Xem thêm tin nhắn" để nạp thêm danh sách tin nhắn. (**MSSV**)
