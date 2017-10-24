@@ -1,7 +1,20 @@
 <tr id="rlf_<%= desfriendlist.id %>">
+    <td class="idBlockuser" style="display:none;"><%= desfriendlist.user.id %> </td>
     <td><%= desfriendlist.user.email %></td>
     <td><%= desfriendlist.user.name %></td>
-    <td>
-      
+    <td class="button-accpect">
+        <% if desfriendlist.status == 0 %>
+          <button class="btn btn-primary blocklists" type="button" name="button">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </button>
+        <% else %>
+          <% if desfriendlist.status == 2 %>
+            <p style='color:#e74c3c;'>You are Blocked</p>
+          <% else %>
+            <button class="btn btn-danger" type="button" name="button">
+              <i class="fa fa-ban" aria-hidden="true"></i>
+            </button>
+          <% end %>
+        <% end %>
     </td>
 </tr>

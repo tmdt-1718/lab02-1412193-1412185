@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'friendrequestcontroller/refresh_part', to: "friendrequests#refresh_part"
   post 'friendrequestcontroller/update_status', to: "friendrequests#update_status"
 
+  resources :blocklists, only: [:create]
   root to: "homes#index"
 end
