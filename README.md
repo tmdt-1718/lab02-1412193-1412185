@@ -1,33 +1,33 @@
-# BT-TMDT-2 - *Name of your app*
+# BT-TMDT-2 - *Yalo*
 
-**Name of your app** là một bài tập môn TMDT. Ứng dụng cho phép người dùng gửi tin nhắn (email) cho người dùng khác.
+**Yalo** là một bài tập môn TMDT. Ứng dụng cho phép người dùng gửi tin nhắn (email) cho người dùng khác.
 
 Thành viên:
-* [ ] **MSSV1** Tên sinh viên 1 (tên tài khoản github)
+* [x] **1412193** Nguyễn Thái Học (1412193 - NguyenThaiHoc1)
 * [x] **1412185** Trần Thiên Hoàng (1412185)
 
-URL: **URL hosting của bài tập**
+URL: **https://floating-badlands-38885.herokuapp.com/**
  
 ## Yêu cầu
 
 Sinh viên check vào các mục bên dưới và ghi mã sinh viên đã làm vào chức năng theo mẫu. Mục nào ko có MSSV là tính điểm theo nhóm. Cần sắp xếp các chức năng bên dưới theo thứ tự MSSV đã thực hiện.
 
 Yêu cầu **GIT**:
-* [ ] Sử dụng GIT theo [Feature Branch Workflow](https://w...content-available-to-author-only...n.com/git/tutorials/comparing-workflows#feature-branch-workflow).
+* [x] Sử dụng GIT theo [Feature Branch Workflow](https://w...content-available-to-author-only...n.com/git/tutorials/comparing-workflows#feature-branch-workflow).
 
 Yêu cầu **bắt buộc**
-* [ ] Đăng ký tài khoản bằng email, password, và tên.  (**MSSV**)
-* [ ] Đăng nhập bằng email và password. (**MSSV**)
-* [ ] Sau khi đăng nhập, người dùng sẽ được chuyển đến trang liệt kê danh sách các tin nhắn đã nhận, sắp xếp theo thứ tự thời gian, một nút để tạo tin nhắn mới, nút để xem danh sách bạn bè và nút để xem các tin nhắn đã gửi. (**MSSV**)
-* [ ] Tin nhắn chưa đọc phải được làm nổi bật hơn các tin nhắn khác. (**MSSV**)
-* [ ] Nhấn vào nút "xem danh sách bạn" sẽ chuyển người dùng đến trang liệt kê danh sách người dùng cùng với các chức năng thêm bạn. (**MSSV**)
-* [ ] Nhấn nút "tạo tin nhắn" sẽ chuyển sang giao diện cho phép người dùng gửi tin nhắn cho người dùng trong danh sách bạn bè. Người gửi phải nằm trong danh sách bạn bè và cho phép người dùng chọn qua dropdown. (**MSSV**)
-* [ ] Nhấn "xem tin đã gửi" sẽ chuyển sang giao diện hiển thị danh sách tin nhắn đã gửi. Mỗi tin nhắn cần hiện thời gian người nhận đã đọc. (**MSSV**)
-* [ ] Mỗi người dùng chỉ có thể đọc tin nhắn 1 lần duy nhất. (**MSSV**)
-* [ ] Người dùng chỉ có thể đọc tin nhắn khi họ nằm trong danh sách người nhận. (**MSSV**)
+* [x] Đăng ký tài khoản bằng email, password, và tên.  (**1412193**)
+* [x] Đăng nhập bằng email và password. (**1412193**)
+* [x] Sau khi đăng nhập, người dùng sẽ được chuyển đến trang liệt kê danh sách các tin nhắn đã nhận, sắp xếp theo thứ tự thời gian, một nút để tạo tin nhắn mới, nút để xem danh sách bạn bè và nút để xem các tin nhắn đã gửi.(**1412193**)
+* [x] Nhấn vào nút "xem danh sách bạn" sẽ chuyển người dùng đến trang liệt kê danh sách người dùng cùng với các chức năng thêm bạn. (**1412193**)
+* [x] Nhấn "xem tin đã gửi" sẽ chuyển sang giao diện hiển thị danh sách tin nhắn đã gửi. Mỗi tin nhắn cần hiện thời gian người nhận đã đọc. (**1412185**)
+* [x] Mỗi người dùng chỉ có thể đọc tin nhắn 1 lần duy nhất. (**1412185**)
+* [x] Người dùng chỉ có thể đọc tin nhắn khi họ nằm trong danh sách người nhận. (**1412185**)
+* [x] Tin nhắn chưa đọc phải được làm nổi bật hơn các tin nhắn khác.(**1412185**)
+* [x] Nhấn nút "tạo tin nhắn" sẽ chuyển sang giao diện cho phép người dùng gửi tin nhắn cho người dùng trong danh sách bạn bè. Người gửi phải nằm trong danh sách bạn bè và cho phép người dùng chọn qua dropdown.
 
 Yêu cầu **không bắt buộc**:
-* [ ] Người dùng có thể gửi hình ảnh đính kèm theo thông điệp. (**MSSV**)
+* [x] Người dùng có thể gửi hình ảnh đính kèm theo thông điệp. (**1412193** cái này em dùng summernote không biết có đúng ý thầy ko?)
 * [ ] Người dùng có thể gửi tin nhắn đến nhiều người dùng cùng lúc. (**MSSV**)
 * [ ] Người dùng có thể đăng nhập với Facebook. (**MSSV**)
 * [ ] Người dùng có thể block người khác. Sau khi block, người dùng sẽ không nhận được tin nhắn từ người bị block gửi nữa. (**MSSV**)
@@ -39,14 +39,16 @@ Yêu cầu **không bắt buộc**:
 * [ ] Người dùng có thể gửi tin nhắn cho người dùng ngoài hệ thống. Khi đó, người nhận sẽ nhận được 1 email chứa link đăng ký tài khoản. Sau khi đăng ký tài khoản, họ có thể xem tin nhắn đã nhận. (**MSSV**)
 
 Liệt kê các **yêu cầu nâng cao** đã thực hiện:
-* [ ] Chức năng 1
+* [x] Gửi friend request (có dùng ajax để quản lý khi người ta gửi 1 friend request đến thể hiện trạng thái chờ đợi hay đã chấp nhận) (**1412193**) 
 * [ ] Chức năng 2
 
 ## Demo
 
 Link ảnh GIF demo ứng dụng:
 
-![Video Walkthrough](demo.gif)
+[Chức năng cơ bản](https://i.imgur.com/oMoNUBs.gifv) - Do ảnh gif này em upload lên giphy không được nên đành upload lên imgur. Nhưng khi tạo xem trước thì github lại báo lỗi "Non-Image content-type returned" nên em phải gắn link trực tiếp vào. Mong thầy thông cảm.
+
+![Chức năng nâng cao](https://media.giphy.com/media/3ov9k2lWeBN50S76Ny/giphy.gif)
 
 Tạo ảnh GIF với chương trình [LiceCap](http://w...content-available-to-author-only...s.com/licecap/).
 
